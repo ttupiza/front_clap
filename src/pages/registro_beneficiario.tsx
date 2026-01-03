@@ -38,7 +38,7 @@ const Perfil: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Enviando datos actualizados:', userData);
+    console.log('Enviando datos actualizadoss:', userData);
   };
 
   return (
