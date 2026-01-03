@@ -1,0 +1,90 @@
+/* Variables de color */
+:root {
+    --active-color: #d9234b; /* Rojo para la pestaña activa y la línea */
+    --inactive-color: #e5987d; /* Color salmón/melocotón para iconos inactivos */
+    --line-color: #e0e0e0; /* Color de la línea divisora principal */
+}
+
+/* Contenedor principal para limitar el ancho y centrar */
+.centered-menu-container-react {
+    width: 100%;
+    max-width: 650px; /* Ancho ajustable para contener las 4 pestañas */
+    padding: 10px 0 0;
+    margin: 0 auto; /* Centrar el menú */
+}
+
+/* Lista principal de navegación */
+.nav-menu-react {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+/* Ítem individual del menú (la pestaña) */
+.nav-item-react {
+    flex-grow: 1; 
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px; /* Espacio para la línea activa */
+    cursor: pointer;
+    user-select: none; /* Evita selección de texto al hacer clic */
+}
+
+/* Estilos de los enlaces (iconos y texto) */
+.nav-item-react a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--inactive-color);
+    font-size: 0.95em;
+    padding: 5px 0;
+    transition: color 0.2s;
+}
+
+/* Estilo del icono */
+.nav-item-react svg { /* Targetear el elemento SVG de FontAwesome */
+    font-size: 1.8em; 
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+/* Estilo del texto */
+.nav-item-react span {
+    font-weight: 500;
+}
+
+/* --- ESTILO DE LA PESTAÑA ACTIVA --- */
+
+/* Color de la pestaña activa */
+.nav-item-react.active a {
+    color: var(--active-color); /* Color rojo para icono y texto activo */
+}
+
+/* Indicador (línea roja) de la pestaña activa */
+.nav-item-react.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15%; /* Ajuste para centrar la línea si es más corta que el texto */
+    right: 15%; /* Ajuste para centrar la línea si es más corta que el texto */
+    height: 3px; 
+    background-color: var(--active-color);
+    border-radius: 2px;
+}
+
+/* Línea divisora horizontal que va debajo del menú */
+.divider-react {
+    height: 1px;
+    background-color: var(--line-color);
+    width: 100%;
+    margin-top: -1px; /* Para que la línea activa se superponga ligeramente */
+}
+
+/* Efecto hover (opcional) */
+.nav-item-react:not(.active):hover a {
+    color: var(--active-color);
+}

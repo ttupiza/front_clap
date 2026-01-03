@@ -1,0 +1,85 @@
+/* Reutiliza las variables y fondo global de tu perfil */
+
+.search-container {
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 14px 12px 40px !important; /* Espacio para el icono de lupa */
+    height: 46px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    background: #fff;
+    font-size: 15px;
+}
+
+.search-icon-inside {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--bg-2);
+    opacity: 0.6;
+}
+
+/* Ajustes de la Tabla según imagen */
+.report-table th {
+    color: #b59a96; /* Color beige/grisáceo de las cabeceras */
+    text-transform: none;
+    font-size: 14px;
+}
+
+.report-table td {
+    color: var(--primary-red);
+    font-size: 14px;
+}
+
+/* Botón pequeño para la tabla */
+.action-btn-small {
+    padding: 6px 15px !important;
+    font-size: 13px !important;
+    border-radius: 6px !important;
+}
+
+/* Footer de paginación */
+.footer-pagination {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 10px;
+    text-align: left;
+}
+
+.footer-pagination p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* --- RESPONSIVE --- */
+
+@media (max-width: 900px) {
+    .report-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .report-table th, .report-table td {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .report-header-text h1 {
+        font-size: 20px;
+    }
+    
+    /* En móviles, el botón de "Examinar" ocupa más espacio para el dedo */
+    .action-btn-small {
+        width: 100%;
+        margin: 5px 0;
+    }
+}

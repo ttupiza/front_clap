@@ -1,0 +1,221 @@
+/* Para un mejor rendimiento, elimina los comentarios innecesarios y las reglas no utilizadas en producción */
+
+/* Forzar box-sizing y evitar scroll horizontal */
+html, body, #root, .app {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+*, *::before, *::after { box-sizing: inherit; }
+html, body { overflow-x: hidden; }
+
+/* Variables globales actualizadas */
+:root {
+    --bg-1: #f5c6c0;
+    --bg-2: #e66757;
+    --card-bg: rgba(255,255,255,0.98);
+    --muted: #6b6b6b;
+    --accent: #2f7a6e;      /* Verde esmeralda para acciones positivas */
+    --primary-red: #d9234b; /* Color para estados y alertas */
+    --shadow: rgba(20,20,20,0.08);
+}
+
+/* Fondo global con degradado */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    background-image: linear-gradient(135deg, var(--bg-1) 0%, #e89a88 40%, var(--bg-2) 100%);
+    background-attachment: fixed;
+    color: #222;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.perfil-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 48px 28px;
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Card: estilo "panel" */
+.perfil-card {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px var(--shadow);
+    padding: 28px 36px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255,255,255,0.45);
+    position: relative;
+    overflow: visible;
+}
+
+/* Cabecera del card con banda superior semitransparente */
+.perfil-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 96px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
+    pointer-events: none;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.02);
+}
+
+.profile-header {
+    text-align: center;
+    margin: 0 0 20px 0;
+    padding-top: 12px;
+}
+.profile-title {
+    margin: 0;
+    font-size: 28px;
+    color: #123232;
+    font-weight: 700;
+}
+.profile-subtitle {
+    margin: 6px 0 0 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Form layout */
+.profile-form {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    padding-top: 8px;
+}
+
+.form-row {
+    display: flex;
+    gap: 22px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+.quarter-width, .half-width { flex: 1 1 calc(50% - 22px); min-width: 240px; }
+.full-width { flex: 1 1 100%; }
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+/* Inputs */
+.input-with-icon { position: relative; }
+.input-with-icon input {
+    width: 100%;
+    padding: 12px 14px;
+    height: 46px;
+    border: 1px solid rgba(30,30,30,0.09);
+    border-radius: 8px;
+    background: #fff;
+    font-size: 15px;
+    transition: all .14s;
+    box-sizing: border-box;
+}
+.input-with-icon input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 6px 20px rgba(47,122,110,0.08);
+}
+
+.edit-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #ff7b55;
+    pointer-events: none;
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01));
+    margin: 22px 0;
+}
+
+.red-text { color: var(--primary-red); font-weight: bold; }
+
+/* ============================================================
+   ESTILOS PARA EL COMPONENTE BUTTON REUTILIZABLE
+   ============================================================ */
+
+.custom-button-react {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform .12s, box-shadow .12s, background-color .12s;
+    font-family: inherit;
+}
+
+/* Variante Verde (Guardar / Actualizar) */
+.login-button-react {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(47,122,110,0.15);
+}
+
+/* Variante Blanca con Borde (Opcional/Secundaria) */
+.register-button-react {
+    background: white;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
+
+.custom-button-react:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.custom-button-react:active {
+    transform: translateY(0);
+}
+
+/* Alineación de botones en el perfil */
+.actions-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+}
+
+.security-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .perfil-page { padding: 28px 18px; }
+    .perfil-card { padding: 20px; }
+    .quarter-width, .half-width { flex: 1 1 100%; }
+    .actions-row { justify-content: center; }
+}
