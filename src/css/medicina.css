@@ -1,0 +1,88 @@
+/* Estilos específicos para la página de Medicina */
+.medicina-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px 48px;
+  box-sizing: border-box;
+}
+
+.medicina-form {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center; /* Centra los elementos dentro del formulario */
+  background: transparent;
+}
+
+.medicina-form > div {
+  width: 100%;
+  max-width: 420px;
+}
+
+.medicina-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  color: #333;
+  text-align: left;
+}
+
+.medicina-form input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #cfcfcf;
+  box-sizing: border-box;
+}
+
+/* Botón principal: más pequeño y centrado */
+.medicina-form .login-button-react {
+  width: 280px; /* ancho fijo menor */
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin: 14px auto 0; /* centrado horizontal */
+  font-size: 1em;
+}
+
+/* Botón de acción pequeño (eliminar) */
+.action-btn-small {
+  padding: 6px 10px !important;
+  font-size: 0.9em !important;
+  width: auto !important;
+  border-radius: 8px !important;
+}
+
+.medicina-list {
+  width: 100%;
+  max-width: 720px;
+  margin-top: 28px;
+}
+
+.medicina-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.medicina-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+@media (max-width: 480px) {
+  .medicina-form .login-button-react {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .medicina-form > div {
+    max-width: 100%;
+  }
+}

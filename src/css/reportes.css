@@ -154,6 +154,7 @@ html, body {
     font-size: 14px;
     color: var(--accent);
     border-bottom: 1px solid rgba(0,0,0,0.06);
+    text-align: center; /* Centrar el título de la tabla */
 }
 
 .table-responsive {
@@ -184,6 +185,69 @@ html, body {
     font-size: 14px;
     color: #333;
     border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+/* Asegura que el contenido de celdas esté centrado verticalmente */
+.report-table td {
+    vertical-align: middle;
+}
+
+/* Forzar que el contenedor directo dentro de la celda alinee los botones al centro */
+.report-table td > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Asegurar misma altura y alineación para variantes pequeñas de botones */
+.report-table td .login-button-react.action-btn-small,
+.report-table td .register-button-react.action-btn-small,
+.report-table td .custom-button-react.action-btn-small {
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Centrar sólo los encabezados de tablas marcadas con .centered-table */
+.report-table.centered-table th {
+    text-align: center;
+}
+
+/* Alineación y tamaño consistente para botones dentro de la tabla */
+.report-table td .custom-button-react,
+.report-table td .register-button-react,
+.report-table td .login-button-react {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    padding: 6px 12px;
+    box-sizing: border-box;
+}
+
+/* Forzar consistencia adicional: eliminar márgenes, unificar line-height y tamaño de fuente */
+.report-table td button,
+.report-table td .custom-button-react,
+.report-table td .register-button-react,
+.report-table td .login-button-react {
+    margin: 0;
+    line-height: 1;
+    font-size: 14px;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+/* Si alguna variante tiene sombra que desplace visualmente, aseguramos que el botón se centre con su contenedor */
+.report-table td > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.report-table td .register-button-react {
+    background: transparent; /* dejar que la clase existente maneje colores */
 }
 
 .empty-table {

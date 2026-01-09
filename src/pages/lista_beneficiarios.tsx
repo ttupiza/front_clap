@@ -33,7 +33,7 @@ const Beneficiarios: React.FC = () => {
             Beneficiarios Registrados (5)
           </div>
           <div className="table-responsive">
-            <table className="report-table">
+            <table className="report-table centered-table">
               <thead>
                 <tr>
                   <th>Cédula</th>

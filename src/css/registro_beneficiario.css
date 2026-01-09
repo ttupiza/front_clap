@@ -83,3 +83,73 @@
         margin: 5px 0;
     }
 }
+
+/* Estilos específicos para el formulario de registrar pago */
+.registrar-pago-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0 0 0;
+}
+
+.registrar-pago-form label {
+    width: 100%;
+    max-width: 720px;
+    text-align: left;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.registrar-pago-form input[type="text"],
+.registrar-pago-form input[type="date"],
+.registrar-pago-form select {
+    width: 100%;
+    max-width: 720px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-sizing: border-box;
+}
+
+/* Fecha más pequeña */
+.registrar-pago-form input[type="date"] {
+    max-width: 260px; /* campo fecha más estrecho */
+}
+
+/* Alinear botones al mismo nivel y tamaño */
+.form-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 720px;
+}
+
+.form-actions .custom-button-react,
+.form-actions .login-button-react,
+.form-actions .register-button-react {
+    height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+@media (max-width: 600px) {
+    .registrar-pago-form label {
+        text-align: center;
+    }
+    .registrar-pago-form input[type="date"] {
+        max-width: 100%;
+    }
+    .form-actions {
+        flex-direction: column;
+    }
+    .form-actions .custom-button-react,
+    .form-actions .login-button-react,
+    .form-actions .register-button-react {
+        width: 100%;
+    }
+}
