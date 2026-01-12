@@ -3,8 +3,10 @@ import '../css/lista_beneficiarios.css';
 import Button from '../Components/common/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import beneficiariosData from '../Components/data/beneficiarios';
 
 const Beneficiarios: React.FC = () => {
+  const beneficiarios = beneficiariosData();
   return (
     <div className="perfil-page">
       <div className="reportes-card">
@@ -45,18 +47,14 @@ const Beneficiarios: React.FC = () => {
               </thead>
               <tbody>
                 {/* Datos extraídos de tu imagen */}
-                {[
-                  { id: 'V-12345678', nom: 'María', ape: 'Rodríguez', dir: 'Av. Libertador, Caracas' },
-                  { id: 'V-23456789', nom: 'Carlos', ape: 'González', dir: 'Calle Los Cedros, Maracaibo' },
-                  { id: 'V-34567890', nom: 'Ana', ape: 'Martínez', dir: 'Av. Bolívar, Valencia' },
-                  { id: 'V-45678901', nom: 'Luis', ape: 'Fernández', dir: 'Calle Principal, Barquisimeto' },
-                  { id: 'V-56789012', nom: 'Carmen', ape: 'López', dir: 'Av. Universidad, Mérida' },
-                ].map((b) => (
-                  <tr key={b.id}>
-                    <td className="red-text" style={{ fontWeight: 'normal' }}>{b.id}</td>
-                    <td className="red-text" style={{ fontWeight: 'normal' }}>{b.nom}</td>
-                    <td className="red-text" style={{ fontWeight: 'normal' }}>{b.ape}</td>
-                    <td className="red-text" style={{ fontWeight: 'normal' }}>{b.dir}</td>
+                {
+                beneficiarios.map((elemento) => (
+                  console.log(elemento),
+                  <tr key={elemento.id}>
+                    <td className="red-text" style={{ fontWeight: 'normal' }}>{elemento.id}</td>
+                    <td className="red-text" style={{ fontWeight: 'normal' }}>{elemento.name}</td>
+                    <td className="red-text" style={{ fontWeight: 'normal' }}>{elemento.email}</td>
+                    <td className="red-text" style={{ fontWeight: 'normal' }}>{elemento.address.street}</td>
                     <td style={{ textAlign: 'center' }}>
                       <Button text="Examinar" className="login-button-react action-btn-small" />
                     </td>

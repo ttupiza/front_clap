@@ -36,9 +36,10 @@ const Medicina: React.FC = () => {
 
 	return (
 		<div className="medicina-page">
-			<h1>Registro de Medicamentos</h1>
+			<div className="medicina-card">
+				<h1>Registro de Medicamentos</h1>
 
-			<form onSubmit={handleSubmit} className="medicina-form">
+				<form onSubmit={handleSubmit} className="medicina-form">
 				<div>
 					<label>Nombre del medicamento</label>
 					<input
@@ -70,9 +71,9 @@ const Medicina: React.FC = () => {
 				</div>
 
 				<Button type="submit" text="Agregar medicamento" className="login-button-react" />
-			</form>
+				</form>
 
-			<section className="medicina-list">
+				<section className="medicina-list">
 				<h2>Medicamentos registrados ({lista.length})</h2>
 				{lista.length === 0 ? (
 					<p>No hay medicamentos registrados.</p>
@@ -86,7 +87,8 @@ const Medicina: React.FC = () => {
 						))}
 					</ul>
 				)}
-			</section>
+				</section>
+			</div>
 		</div>
 	);
 };
