@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../css/lista_beneficiarios.css';
 import Button from '../Components/common/Button';
+import Menutab from '../Components/menu';
 
 type Usuario = {
   id: string;
@@ -27,6 +28,7 @@ const ListaUsuario: React.FC = () => {
 
   return (
     <div className="perfil-page">
+      <Menutab />
       <div className="reportes-card">
         <header className="report-header">
           <div className="report-header-text">

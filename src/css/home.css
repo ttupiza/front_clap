@@ -1,0 +1,129 @@
+/* ==========================================================================
+   CONTENEDOR PRINCIPAL (PANTALLA COMPLETA 100%)
+   ========================================================================== */
+.home-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* Ocupa el 100% del alto de la ventana del navegador */
+  min-height: 100vh; 
+  
+  padding: 40px 20px;
+  background-image: url('../assets/images/fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* Capa oscura para legibilidad */
+.home-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65); /* Un poco más oscuro para que resalte el texto largo */
+  z-index: 1;
+}
+
+/* ==========================================================================
+   CONTENIDO INTERNO
+   ========================================================================== */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px; /* Ancho ideal para lectura de texto justificado */
+  width: 100%;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  margin-bottom: 25px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: left; /* El título suele verse mejor alineado a la izquierda */
+}
+
+.hero-content p {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.8;
+  margin-bottom: 40px;
+  color: #f1f1f1;
+  
+  /* TEXTO JUSTIFICADO */
+  text-align: justify;
+  text-justify: inter-word; /* Distribuye el espacio entre palabras uniformemente */
+}
+
+/* ==========================================================================
+   BOTONES
+   ========================================================================== */
+.hero-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start; /* Alineados con el inicio del texto */
+}
+
+.hero-actions > .register-button-react,
+.hero-actions > .login-button-react {
+  flex: 0 1 220px; /* Tamaño base de 220px */
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1rem;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-actions > .register-button-react {
+  background-color: #317a6e;
+  color: #ffffff;
+}
+
+.hero-actions > .register-button-react:hover {
+  background-color: #265f56;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(49, 122, 110, 0.3);
+}
+
+.hero-actions > .login-button-react {
+  background-color: #ffffff;
+  color: #317a6e;
+}
+
+.hero-actions > .login-button-react:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================================================
+   MÓVILES
+   ========================================================================== */
+@media (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content p {
+    text-align: left; /* En móviles muy pequeños, justificar puede dejar huecos feos */
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions > .register-button-react,
+  .hero-actions > .login-button-react {
+    width: 100%;
+    flex: none;
+  }
+}

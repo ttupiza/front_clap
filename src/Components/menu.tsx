@@ -1,26 +1,30 @@
-import React, { useState, useCallback } from 'react';
+import React, { useMemo } from 'react';
 import '../css/menu.css'; // ruta corregida
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faCog, faUsers, faFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 type NavItem = {
   name: string;
-  icon: any; // cambio: usar any para evitar errores de tipos con distintas versiones
+  icon: any;
+  to: string;
 };
 
 const NAV_ITEMS: NavItem[] = [
-  { name: 'Perfil', icon: faUser },
-  { name: 'Configuración', icon: faCog },
-  { name: 'Beneficiarios', icon: faUsers },
-  { name: 'Reportes', icon: faFileAlt },
+  { name: 'Perfil', icon: faUser, to: '/perfil' },
+  { name: 'Configuración', icon: faCog, to: '/lista_usuario' },
+  { name: 'Beneficiarios', icon: faUsers, to: '/lista_beneficiarios' },
+  { name: 'Reportes', icon: faFileAlt, to: '/reportes' },
 ];
 
 const TabMenu: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>('Perfil');
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleActivate = useCallback((name: string) => {
-    setActiveTab(name);
-  }, []);
+  const activeName = useMemo(() => {
+    const match = NAV_ITEMS.find((item) => item.to === location.pathname || location.pathname.startsWith(item.to + '/'));
+    return match ? match.name : '';
+  }, [location.pathname]);
 
   return (
     <nav className="centered-menu-container-react" aria-label="Menú principal">
@@ -28,15 +32,15 @@ const TabMenu: React.FC = () => {
         {NAV_ITEMS.map((item) => (
           <li
             key={item.name}
-            className={`nav-item-react ${activeTab === item.name ? 'active' : ''}`}
+            className={`nav-item-react ${activeName === item.name ? 'active' : ''}`}
             role="presentation"
           >
             <button
               type="button"
               role="tab"
-              aria-selected={activeTab === item.name}
+              aria-selected={activeName === item.name}
               className="nav-button-react"
-              onClick={() => handleActivate(item.name)}
+              onClick={() => navigate(item.to)}
             >
               <FontAwesomeIcon icon={item.icon} aria-hidden="true" />
               <span>{item.name}</span>
