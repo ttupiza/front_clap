@@ -1,12 +1,14 @@
 import React from 'react';
 import '../css/reportes.css';
 import Button from '../Components/common/Button';
+import Menutab from '../Components/menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faFileAlt, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
 const Reportes: React.FC = () => {
   return (
     <div className="perfil-page"> {/* Reutiliza el padding y alineación global */}
+      <Menutab />
       <div className="perfil-card">
         
         <header className="profile-header">

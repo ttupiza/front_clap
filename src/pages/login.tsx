@@ -62,10 +62,10 @@ const Login: React.FC = () => {
 
           <p className="no-account-react">¿No tienes una cuenta?</p>
 
-          {/* Este botón ahora se comporta como un <a href="#"> */}
+          {/* Usar Button con prop `to` para navegar a /perfil */}
           <Button 
             text="Regístrate" 
-            to="#" 
+            to="/perfil" 
             className="register-button-react" 
           />
         </div>

@@ -157,7 +157,7 @@ const Perfil: React.FC = () => {
               <h3 className="security-action-title">Control de Medicamentos</h3>
               <p className="security-last-update">Registra las medicinas del beneficiario</p>
             </div>
-            <Button text="Agregar Medicina" to="/add-medicine" className="login-button-react" />
+            <Button text="Agregar Medicina" to="/medicina" className="login-button-react" />
           </div>
 
           <hr className="separator" style={{ margin: '15px 0' }} />
@@ -168,7 +168,7 @@ const Perfil: React.FC = () => {
               <h3 className="security-action-title">Círculo Familiar</h3>
               <p className="security-last-update">Añadir familiares</p>
             </div>
-            <Button text="Agregar Familiar" className="register-button-react" />
+            <Button text="Agregar Familiar" to="/familiar" className="register-button-react" />
           </div>
         </div>
       </div>

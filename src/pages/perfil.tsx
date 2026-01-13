@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../css/perfil.css';
 import Button from '../Components/common/Button';
+import Menutab from '../Components/menu';
 
 interface UserData {
   primerNombre: string;
@@ -45,6 +46,7 @@ const Perfil: React.FC = () => {
 
   return (
     <div className="perfil-page">
+      <Menutab />
       <form className="perfil-card user-profile-container" onSubmit={handleSubmit}>
         <div className="profile-header">
           <h2 className="profile-title">Perfil de Usuario</h2>

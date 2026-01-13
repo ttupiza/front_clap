@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/lista_beneficiarios.css';
 import Button from '../Components/common/Button';
+import Menutab from '../Components/menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import beneficiariosData from '../Components/data/beneficiarios';
@@ -9,6 +10,7 @@ const Beneficiarios: React.FC = () => {
   const beneficiarios = beneficiariosData();
   return (
     <div className="perfil-page">
+      <Menutab />
       <div className="reportes-card">
         {/* Encabezado con título y botón de descarga */}
         <header className="report-header">

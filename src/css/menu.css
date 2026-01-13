@@ -39,7 +39,7 @@
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: var(--inactive-color);
+    color: #000 !important;
     font-size: 0.95em;
     padding: 5px 0;
     transition: color 0.2s;
@@ -52,6 +52,18 @@
     line-height: 1;
 }
 
+/* Forzar iconos en negro por defecto (anula colores heredados) */
+.nav-item-react svg,
+.nav-item-react a svg,
+.nav-item-react button svg {
+    color: #000 !important;
+}
+
+/* Asegurar que el icono se mantenga negro también cuando la pestaña está activa */
+.nav-item-react.active svg {
+    color: #000 !important;
+}
+
 /* Estilo del texto */
 .nav-item-react span {
     font-weight: 500;
@@ -61,7 +73,7 @@
 
 /* Color de la pestaña activa */
 .nav-item-react.active a {
-    color: var(--active-color); /* Color rojo para icono y texto activo */
+    color: #000 !important; /* Mantener texto negro en activo */
 }
 
 /* Indicador (línea roja) de la pestaña activa */
@@ -86,5 +98,101 @@
 
 /* Efecto hover (opcional) */
 .nav-item-react:not(.active):hover a {
-    color: var(--active-color);
+    color: #000 !important;
+}
+
+/* Forzar texto negro también para spans y botones dentro del menú */
+.nav-item-react span,
+.nav-item-react button,
+.nav-item-react a,
+.nav-item-react .nav-button-react {
+    color: #000 !important;
+}
+
+/* Forzar diseño horizontal en pantallas pequeñas y permitir que los items encojan */
+@media (max-width: 600px) {
+    .centered-menu-container-react {
+        max-width: 100%;
+        padding: 6px 8px 0;
+    }
+
+    .nav-menu-react {
+        display: flex;
+        flex-wrap: nowrap; /* no envolver, mantener horizontal */
+        gap: 6px;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-x: auto; /* permitir scroll horizontal */
+        -webkit-overflow-scrolling: touch;
+        padding: 6px;
+    }
+
+    .nav-item-react {
+        flex: 0 0 auto; /* evitar que se estiren, permitir scroll */
+        min-width: 64px; /* ancho mínimo para cada item */
+        box-sizing: border-box;
+        padding-bottom: 6px;
+    }
+
+    /* Aplicar estilo coherente también a botones usados en el menú */
+    .nav-item-react a,
+    .nav-item-react button,
+    .nav-item-react .nav-button-react {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: var(--inactive-color) !important;
+        background: transparent !important; /* quitar fondo blanco */
+        border: none !important; /* quitar borde por defecto */
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        padding: 4px 6px !important;
+        cursor: pointer;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Asegurar que el li no ocupe todo el ancho y los items se alineen en fila */
+    .nav-menu-react > .nav-item-react {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-item-react svg {
+        font-size: 1.2em; /* iconos más pequeños en móvil */
+        margin-bottom: 2px;
+    }
+
+    .nav-item-react span {
+        font-size: 0.78rem;
+        white-space: nowrap; /* evitar salto de línea en el texto */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .nav-item-react.active::after {
+        left: 12%;
+        right: 12%;
+    }
+}
+
+/* (Removed duplicate responsive block to keep menu horizontal on small screens) */
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 360px) {
+    .nav-item-react {
+        min-width: 64px;
+    }
+
+    .nav-item-react svg {
+        font-size: 1.1em;
+        color: #000 !important; /* iconos negros en pantallas muy pequeñas */
+    }
+
+    .nav-item-react span {
+        font-size: 0.7rem;
+    }
 }
