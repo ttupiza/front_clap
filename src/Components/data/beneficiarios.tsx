@@ -1,15 +1,54 @@
-import { useState, useEffect } from "react";
+import Button from "../common/Button";
+import useFetch from "./useFetch";
 
-const beneficiariosData = () => {
-    const [beneficiarios, setBeneficiarios] = useState<Array<{id: string; email: string; name: string; address: {street: string}}>>([]);
-
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then(response => response.json())
-        .then(data => setBeneficiarios(data))
-        .catch(error => console.error('Error fetching beneficiarios:', error));
-    }, []);
-
-    return beneficiarios;
+interface Beneficiario {
+  id: number;
+  name: string;
+  email: string;
+  address: {
+    street: string;
+  };
+  // agregar otros campos si los necesita
 }
-export default beneficiariosData;
+
+const BeneficiariosData = () => {
+  const { data, loading, error } = useFetch<Beneficiario[]>(
+    "https://jsonplaceholder.typicode.com/users",
+  );
+
+  return (
+    <tbody>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      {data &&
+        data.map(
+          (elemento: Beneficiario) => (
+            console.log(elemento),
+            (
+              <tr key={elemento.id}>
+                <td className="red-text" style={{ fontWeight: "normal" }}>
+                  {elemento.id}
+                </td>
+                <td className="red-text" style={{ fontWeight: "normal" }}>
+                  {elemento.name}
+                </td>
+                <td className="red-text" style={{ fontWeight: "normal" }}>
+                  {elemento.email}
+                </td>
+                <td className="red-text" style={{ fontWeight: "normal" }}>
+                  {elemento.address.street}
+                </td>
+                <td style={{ textAlign: "center" }}>
+                  <Button
+                    text="Examinar"
+                    className="login-button-react action-btn-small"
+                  />
+                </td>
+              </tr>
+            )
+          ),
+        )}
+    </tbody>
+  );
+};
+export default BeneficiariosData;
