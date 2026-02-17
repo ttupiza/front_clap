@@ -1,43 +1,27 @@
 import React, { useState } from "react";
 import Button from "../Components/common/Button";
+import MedicamentosData from "../Components/data/medicamento";
 import "../css/medicina.css";
-
-type Medicamento = {
-	id: number;
-	nombre: string;
-	presentacion: string;
-	unidadPresentacion: string;
-};
 
 const Medicina: React.FC = () => {
 	const [nombre, setNombre] = useState("");
 	const [presentacion, setPresentacion] = useState("");
 	const [unidadPresentacion, setUnidadPresentacion] = useState("");
-	const [lista, setLista] = useState<Medicamento[]>([]);
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 		if (!nombre.trim()) return;
-		const nuevo: Medicamento = {
-			id: Date.now(),
-			nombre: nombre.trim(),
-			presentacion: presentacion.trim(),
-			unidadPresentacion: unidadPresentacion.trim(),
-		};
-		setLista((s) => [nuevo, ...s]);
+		// Aquí iría la lógica para agregar el medicamento
 		setNombre("");
 		setPresentacion("");
 		setUnidadPresentacion("");
 	};
 
-	const handleEliminar = (id: number) => {
-		setLista((s) => s.filter((m) => m.id !== id));
-	};
-
 	return (
 		<div className="medicina-page">
+			{/* Sección de formulario para agregar medicamento */}
 			<div className="medicina-card">
-				<h1>Registro de Medicamentos</h1>
+				<h1>Agregar Medicamento</h1>
 
 				<form onSubmit={handleSubmit} className="medicina-form">
 				<div>
@@ -72,22 +56,12 @@ const Medicina: React.FC = () => {
 
 				<Button type="submit" text="Agregar medicamento" className="login-button-react" />
 				</form>
+			</div>
 
-				<section className="medicina-list">
-				<h2>Medicamentos registrados ({lista.length})</h2>
-				{lista.length === 0 ? (
-					<p>No hay medicamentos registrados.</p>
-				) : (
-					<ul>
-						{lista.map((m) => (
-							<li key={m.id}>
-								<strong>{m.nombre}</strong> — {m.presentacion} ({m.unidadPresentacion})
-								<Button type="button" text="Eliminar" className="register-button-react action-btn-small" onClick={() => handleEliminar(m.id)} />
-							</li>
-						))}
-					</ul>
-				)}
-				</section>
+			{/* Sección de medicamentos registrados */}
+			<div className="medicina-card">
+				<h1>Medicamentos Registrados</h1>
+				<MedicamentosData />
 			</div>
 		</div>
 	);
