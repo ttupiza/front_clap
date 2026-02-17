@@ -224,10 +224,56 @@ label {
 }
 
 .security-item {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 16px;
     align-items: center;
-    padding: 16px 0;
+    padding: 12px 0;
+}
+
+/* Container específico para la sección de gestión adicional (registro_beneficiario) */
+.medicine-container .security-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 6px 0 2px 0;
+}
+
+/* Asegurar que los botones dentro de los items no ocupen todo el ancho global (override de reglas globales) */
+.security-item .login-button-react,
+.security-item .register-button-react,
+.security-item .custom-button-react {
+    width: auto !important;
+    min-width: 140px;
+    height: 44px;
+    justify-self: end;
+    padding: 10px 16px;
+}
+
+/* Hacer que el botón secundario dentro de security-item tenga el mismo estilo que el botón principal (Agregar Medicina) */
+.security-item .register-button-react {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    box-shadow: 0 6px 18px rgba(47,122,110,0.15);
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    line-height: 1;
+}
+.security-item .register-button-react:hover {
+    filter: brightness(1.05);
+    transform: translateY(-2px);
+}
+
+.security-title {
+    margin: 0 0 12px 0;
+    font-size: 20px;
 }
 
 /* Responsive */
@@ -236,4 +282,19 @@ label {
     .perfil-card { padding: 20px; }
     .quarter-width, .half-width { flex: 1 1 100%; }
     .actions-row { justify-content: center; }
+}
+
+@media (max-width: 720px) {
+    .security-item {
+        grid-template-columns: 1fr; /* apilar texto y botón */
+        gap: 10px;
+        padding: 10px 0;
+    }
+    .security-item .login-button-react,
+    .security-item .register-button-react,
+    .security-item .custom-button-react {
+        width: 100% !important;
+        justify-self: stretch;
+    }
+    .security-title { text-align: center; }
 }

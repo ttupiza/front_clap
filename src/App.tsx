@@ -12,6 +12,8 @@ import Familiar from './pages/familiar';
 import Medicina from './pages/medicina';
 import Lista_Usuario from './pages/lista_usuario';
 import Registrar_Pago from './pages/registrar_pago';
+import Examinar_Beneficiario from './pages/examinar_beneficiario';
+import Examinar_Usuario from './pages/examinar_usuario';
 
 
 function App() {
@@ -32,6 +34,8 @@ function App() {
         <Route path="/medicina" element={<Medicina />} />
         <Route path="/lista_usuario" element={<Lista_Usuario />} />
         <Route path="/registrar_pago" element={<Registrar_Pago />} />
+        <Route path="/examinar_beneficiario/:id" element={<Examinar_Beneficiario />} />
+        <Route path="/examinar_usuario/:id" element={<Examinar_Usuario />} />
       </Routes>
     </Router>
 

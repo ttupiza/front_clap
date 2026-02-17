@@ -7,10 +7,11 @@ type ButtonProps = {
   type?: 'button' | 'submit' | 'reset';
   to?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
   children?: React.ReactNode;
 };
 
-const Button: React.FC<ButtonProps> = ({ text, className, type = 'button', to, onClick, children }) => {
+const Button: React.FC<ButtonProps> = ({ text, className, type = 'button', to, onClick, disabled, children }) => {
   if (to) {
     return (
       <Link to={to} className={className}>
@@ -19,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({ text, className, type = 'button', to, o
     );
   }
   return (
-    <button type={type} className={className} onClick={onClick}>
+    <button type={type} className={className} onClick={onClick} disabled={disabled}>
       {text ?? children}
     </button>
   );

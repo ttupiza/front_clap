@@ -83,3 +83,118 @@
         margin: 5px 0;
     }
 }
+
+/* Asegurar que los botones de paginación tengan el mismo tamaño */
+.pagination-controls .register-button-react,
+.pagination-controls .login-button-react {
+    min-width: 160px; /* ancho mínimo igual */
+    height: 52px;     /* altura igual */
+    padding: 10px 18px;
+    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-right: 8px;
+}
+
+/* En pantallas pequeñas mantener tamaño uniforme y apilado */
+@media (max-width: 520px) {
+    .pagination-controls .register-button-react,
+    .pagination-controls .login-button-react {
+        min-width: 0;
+        width: 48%;
+        height: 48px;
+        margin-right: 6px;
+    }
+    .pagination-controls {
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+}
+
+/* Layout en 3 columnas para paginación: izquierda, centro, derecha */
+.pagination-controls {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.pagination-controls .left-pager {
+    display: flex;
+    gap: 8px;
+    justify-self: start;
+}
+
+.pagination-controls .page-info {
+    justify-self: center;
+    text-align: center;
+}
+
+.pagination-controls .right-actions {
+    display: flex;
+    justify-content: flex-end;
+    justify-self: end;
+}
+
+/* Responsive: apilar y centrar en pantallas pequeñas */
+@media (max-width: 720px) {
+    .pagination-controls {
+        grid-template-columns: 1fr;
+        padding: 8px 6px;
+    }
+    .pagination-controls .left-pager,
+    .pagination-controls .right-actions,
+    .pagination-controls .page-info {
+        justify-self: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
+    .pagination-controls .left-pager {
+        order: 1;
+    }
+    .pagination-controls .page-info {
+        order: 2;
+        margin-top: 6px;
+        margin-bottom: 6px;
+    }
+    .pagination-controls .right-actions {
+        order: 3;
+    }
+}
+
+/* Botón flotante (FAB) para agregar beneficiario */
+/* Inline FAB placed on the right inside the pagination controls */
+.fab-inline {
+    min-width: 160px;
+    height: 52px;
+    padding: 10px 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 520px) {
+    .fab-inline {
+        min-width: 0;
+        width: 48%;
+        height: 48px;
+        padding: 8px 12px;
+    }
+    .pagination-controls {
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+    .right-actions {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
