@@ -9,7 +9,7 @@ interface Medicamento {
 
 const MedicamentosData = () => {
   const { data, loading, error } = useFetch<Medicamento[]>(
-    "https://jsonplaceholder.typicode.com/users",
+    "http://127.0.0.1:8000/api/medicamentos/"
   );
 
   return (

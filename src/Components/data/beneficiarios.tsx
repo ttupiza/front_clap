@@ -13,9 +13,10 @@ interface Beneficiario {
 
 const BeneficiariosData = () => {
   const { data, loading, error } = useFetch<Beneficiario[]>(
-    "https://jsonplaceholder.typicode.com/users",
+    "http://127.0.0.1:8000/api/beneficiarios/",
   );
-
+  console.log(data);
+  console.log(error);
   return (
     <tbody>
       {loading && <p>Loading...</p>}
