@@ -8,7 +8,7 @@ import ReporteData from '../Components/data/reporte';
 
 const Reportes: React.FC = () => {
   return (
-    <div className="perfil-page"> {/* Reutiliza el padding y alineación global */}
+    <div className="perfil-page"> {/* Reutiliza el padding  */}
       <Menutab />
       <div className="perfil-card">
         

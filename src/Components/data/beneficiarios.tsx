@@ -8,7 +8,7 @@ interface Beneficiario {
   address: {
     street: string;
   };
-  // agregar otros campos si los necesita
+ 
 }
 
 const BeneficiariosData = () => {

@@ -10,7 +10,7 @@ export interface Familiar {
   address: {
     street: string;
   };
-  // agregar otros campos si los necesita
+ 
 }
 
 export const FAMILIAR_API = "http://127.0.0.1:8000/api/familiar/";
