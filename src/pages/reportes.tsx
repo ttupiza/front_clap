@@ -4,6 +4,7 @@ import Button from '../Components/common/Button';
 import Menutab from '../Components/menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faFileAlt, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import ReporteData from '../Components/data/reporte';
 
 const Reportes: React.FC = () => {
   return (
@@ -62,13 +63,8 @@ const Reportes: React.FC = () => {
                   <th>N° Referencia</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td colSpan={6} className="empty-table">
-                    No hay registros disponibles para mostrar
-                  </td>
-                </tr>
-              </tbody>
+
+              <ReporteData />
             </table>
           </div>
         </div>

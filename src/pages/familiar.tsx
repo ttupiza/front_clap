@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../css/perfil.css';
 import Button from '../Components/common/Button';
+import FamiliaresData from '../Components/data/familiares';
 
 interface UserData {
   primerNombre: string;
@@ -135,7 +136,42 @@ const Perfil: React.FC = () => {
         </div>
       </form>
 
-     
+      {/* SECCIÓN 2: Lista de Familiares */}
+      <div className="reportes-card">
+        <header className="report-header">
+          <div className="report-header-text">
+            <h1 className="profile-title" style={{ color: "#d9234b" }}>
+              Familiares Registrados
+            </h1>
+            <p className="profile-subtitle">
+              Consulta la lista de familiares que se han agregado al sistema
+            </p>
+          </div>
+        </header>
+
+        <div className="table-wrapper">
+          <div className="table-title-bar" style={{ background: "#d9c8c5", color: "#d9234b" }}>
+            Familiares
+          </div>
+          <div className="table-responsive">
+            <table className="report-table centered-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Teléfono</th>
+                  <th>Email</th>
+                  <th>Dirección</th>
+                  <th style={{ textAlign: "center" }}>Acciones</th>
+                </tr>
+              </thead>
+
+              <FamiliaresData />
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
